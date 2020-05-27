@@ -213,8 +213,8 @@ bool ReparsePoint::CreateMountPoint(const std::wstring& path, const std::wstring
 	{
 		return false;
 	}
-
-	return CreateMountPointInternal(path, BuildMountPoint(FixupPath(target), printname));
+	auto mp = BuildMountPoint(FixupPath(target), printname);
+	return CreateMountPointInternal(path, mp);
 }
 
 bool ReparsePoint::CreateSymlink(const std::wstring& path, const std::wstring& target, const std::wstring& printname, bool relative)
@@ -223,8 +223,8 @@ bool ReparsePoint::CreateSymlink(const std::wstring& path, const std::wstring& t
 	{
 		return false;
 	}
-
-	return CreateMountPointInternal(path, BuildSymlink(!relative ? FixupPath(target) : target, printname, relative));	
+	auto sm = BuildSymlink(!relative ? FixupPath(target) : target, printname, relative);
+	return CreateMountPointInternal(path, sm);	
 }
 
 bool ReparsePoint::CreateSymlink(HANDLE h, const std::wstring& target, const std::wstring& printname, bool relative)
@@ -235,8 +235,8 @@ bool ReparsePoint::CreateSymlink(HANDLE h, const std::wstring& target, const std
 	{
 		return false;
 	}
-
-	return CreateMountPointInternal(handle, BuildSymlink(!relative ? FixupPath(target) : target, printname, relative));
+	auto sm = BuildSymlink(!relative ? FixupPath(target) : target, printname, relative);
+	return CreateMountPointInternal(handle, sm);
 }
 
 bool ReparsePoint::DeleteMountPoint(const std::wstring& path)

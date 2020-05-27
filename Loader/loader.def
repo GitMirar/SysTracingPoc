@@ -1,0 +1,10 @@
+LIBRARY Loader 
+
+EXPORTS
+	WlanHostedNetworkQueryProperty		PRIVATE
+	WlanQueryInterface					PRIVATE
+	WlanOpenHandle						PRIVATE
+	WlanFreeMemory						PRIVATE
+	WlanCloseHandle						PRIVATE
+	WlanSignalValueToBar				PRIVATE
+	WlanUtf8SsidToDisplayName			PRIVATE

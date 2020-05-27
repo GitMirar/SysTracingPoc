@@ -43,11 +43,11 @@ public:
 	}
 
 	const T* cget() const {
-		return interpret_cast<const T*>(buffer_.get());
+		return reinterpret_cast<const T*>(buffer_.get());
 	}
 
-	typed_buffer_ptr(const typed_buffer_ptr<T>& other) = delete;
-	typed_buffer_ptr& typed_buffer_ptr::operator=(const typed_buffer_ptr<T>& other) = delete;
+	//typed_buffer_ptr(const typed_buffer_ptr<T>& other) = delete;
+	//typed_buffer_ptr& typed_buffer_ptr::operator=(const typed_buffer_ptr<T>& other) = delete;
 
 	typed_buffer_ptr(typed_buffer_ptr<T>&& other) {
 		buffer_ = std::move(other.buffer_);
